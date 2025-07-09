@@ -85,12 +85,14 @@ MonoBehaviour:
   firePoint: {fileID: 478946012962873264}
   chargeRate: 4
   chargeMaxForce: 0
-  maxLaunchForce: {x: 0, y: 0, z: 10}
+  maxLaunchForce: {x: 0, y: 10, z: 30}
   minLaunchForce: {x: 0, y: 0, z: 1}
   launchForce: 0
+  leftRightForceMax: 10
   <IsDragging>k__BackingField: 0
   startPos: {x: 0, y: 0, z: 0}
   maxDragDistance: -200
+  maxLeftRight: 100
 --- !u!114 &7997720315416455400
 MonoBehaviour:
   m_ObjectHideFlags: 0
