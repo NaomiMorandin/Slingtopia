@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             print("Hit Enemy");
+
+            enemy.Ragdoll.TurnOn();
         }
 
         Destroy(this.gameObject);
