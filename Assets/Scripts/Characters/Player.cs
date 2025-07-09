@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
+    [field: SerializeField] public PlayerBasket Basket {  get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this.gameObject);
+    }
+
+
     [Header("Object")]
+    [SerializeField] Projectile projectilePrefab;
     [SerializeField] private GameObject obj;
     [SerializeField] private Transform firePoint;
     [Space(1)]
@@ -12,13 +24,15 @@ public class Player : MonoBehaviour
     [Header("Launch")]
     [SerializeField] private float chargeRate;
     [SerializeField] private float chargeMaxForce;
-    [SerializeField] Vector3 maxLaunchForce = new Vector3(0f, 0f, 10f);
-    [SerializeField] Vector3 minLaunchForce = new Vector3(0f, 0f, 1f);
+    [SerializeField] Vector3 maxLaunchForce = new Vector3(0f, 10f, 30f);
+    [SerializeField] Vector3 minLaunchForce = new Vector3(0f, 1f, 1f);
     [SerializeField] private float launchForce;
-    [Space(1)]
+    //[Space(1)]
 
-    [Header("Dragging")]
-    [SerializeField] private bool isDragging;
+
+    [field: SerializeField, Header("Dragging")] public bool IsDragging { get; private set; } = false;
+    [SerializeField] Vector3 startPos;
+    [SerializeField] float maxDragDistance = -200.0f;
 
     private void Start()
     {
@@ -34,23 +48,47 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleCharge();
+
+        if (IsDragging)
+        {
+            UI.Debug.DebugText.SetText(NormalisedForceFromDrag.ToString());
+        }
     }
 
     #region Charge/Launch
     private void HandleCharge()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            isDragging = true;
-            launchForce += Time.deltaTime * chargeRate;
-            launchForce = Mathf.Min(launchForce, chargeMaxForce);
+            startPos = Input.mousePosition;
+            IsDragging = true;
+
+
+
+           /* launchForce += Time.deltaTime * chargeRate;
+            launchForce = Mathf.Min(launchForce, chargeMaxForce);*/
+
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            float normalizedForce = Mathf.Clamp01(launchForce / chargeMaxForce);
-            LaunchObject(normalizedForce);
+            IsDragging = false;
+            LaunchActual();
+            /*float normalizedForce = Mathf.Clamp01(launchForce / chargeMaxForce);
+            LaunchObject(normalizedForce);*/
         }
+    }
+
+    public void LaunchButtonPressed()
+    {
+        startPos = Input.mousePosition;
+        IsDragging = true;
+    }
+
+    private void LaunchActual()
+    {
+        Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        projectile.Rigidbody.AddForce(CalculatedLaunchForce(NormalisedForceFromDrag), ForceMode.Impulse);
     }
 
     private void LaunchObject(float normal)
@@ -65,13 +103,45 @@ public class Player : MonoBehaviour
             rb.AddForce(launchDir, ForceMode.Impulse);
         }
 
-        isDragging = false;
+        //isDragging = false;
         launchForce = 0f;
     }
 
     public Vector3 CalculatedLaunchForce(float normalizedForce)
     {
         return Vector3.Lerp(minLaunchForce, maxLaunchForce, normalizedForce);
+    }
+
+    public Vector3 DragDifference
+    {
+        get
+        {
+            return Input.mousePosition - startPos;
+        }
+    }
+
+    public float NormalisedForceFromDrag
+    {
+        get
+        {
+            float normalisedForce = 0;
+
+            if (DragDifference.y <= maxDragDistance)
+            {
+                normalisedForce = 1.0f;
+            }
+            else if (DragDifference.y > 0)
+            {
+                normalisedForce = 0.0f;
+            }
+            else
+            {
+                normalisedForce = DragDifference.y / maxDragDistance;
+            }
+
+
+            return normalisedForce;
+        }
     }
 
     #endregion
