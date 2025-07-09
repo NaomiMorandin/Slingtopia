@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [Header("Launch")]
     [SerializeField] private float chargeRate;
     //[SerializeField] private float chargeMax;
+    [SerializeField] private float minForce;
     [SerializeField] private float launchForce;
     [Space(1)]
 
@@ -20,11 +21,15 @@ public class Player : MonoBehaviour
     private float startXPos;
     private float startYPos;
 
+    private Vector3 mousePos;
+    private Vector3 objectVector;
+
     private void Start()
     {
         cam = Camera.main;
+        mousePos = Input.mousePosition;
 
-        if(obj == null)
+        if (obj == null)
         {
             Debug.LogError("No Object Found!");
             return;
@@ -38,7 +43,7 @@ public class Player : MonoBehaviour
 
         if(isDragging)
         {
-            HandleDrag();
+            DragObject();
         }
     }
 
@@ -53,31 +58,27 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-
-            LaunchObject();
+            LaunchObject(objectVector);
         }
     }
 
-    private void LaunchObject()
+    private void LaunchObject(Vector3 pos)
     {
-        var launchedObject = Instantiate(obj, transform.position, transform.rotation);
+        var launchedObject = Instantiate(obj, pos, Quaternion.identity);
         var rb = launchedObject.GetComponent<Rigidbody>();
  
         if(rb != null )
         {
-            rb.AddForce(Vector3.forward * (10f * launchForce), ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * (minForce * launchForce), ForceMode.Impulse);
         }
 
         isDragging = false;
         launchForce = 0f;
     }
     #endregion
-
     #region Drag
     private void OnMouseDown()
     {
-        Vector3 mousePos = Input.mousePosition;
-
         mousePos = cam.ScreenToWorldPoint(mousePos);
 
         startXPos = mousePos.x - transform.localPosition.x;
@@ -91,15 +92,18 @@ public class Player : MonoBehaviour
         isDragging = false;
     }
 
-    private void HandleDrag()
+    private Vector3 DragObject()
     {
-        Vector3 mousePos = Input.mousePosition;
-
         mousePos = cam.ScreenToWorldPoint(mousePos);
-        transform.localPosition = new Vector3(mousePos.x - startXPos,
-            mousePos, mousePose.y - startYPos, transform.localPosition.z);
+        var objectVector = obj.transform.localPosition;
+        objectVector = new Vector3(mousePos.x - startXPos,
+            mousePos.y - startYPos, transform.localPosition.z);
+
+        return objectVector;
+
     }
     #endregion
+
 }
 
 //input
