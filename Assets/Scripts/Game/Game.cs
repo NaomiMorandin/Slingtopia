@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Game Instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    [field: SerializeField] public Trench Trench { get; private set; }
+    [field: SerializeField] public EnemySpawner[] Spawners { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance == null) Instance = this;
+        else Destroy(this.gameObject);
     }
 }
