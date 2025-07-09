@@ -18,9 +18,4 @@ public class Enemy : MonoBehaviour
     {
         DeathPause.StartDeathTimer(PostDeathTTL);
     }
-
-    private void Example()
-    {
-        Vector3.Lerp\
-    }
 }

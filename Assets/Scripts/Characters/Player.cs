@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [field: SerializeField, Header("Dragging")] public bool IsDragging { get; private set; } = false;
     [SerializeField] Vector3 startPos;
     [SerializeField] float maxDragDistance = -200.0f;
+    [SerializeField] float maxLeftRight = 100.0f;
 
     private void Start()
     {
@@ -141,6 +142,33 @@ public class Player : MonoBehaviour
 
 
             return normalisedForce;
+        }
+    }
+
+    public float NormalisedLefRight
+    {
+        get
+        {
+            float normalisedLefRight = 0;
+
+            if (DragDifference.x > maxLeftRight)
+            {
+                normalisedLefRight = 1.0f;
+            }
+            else if (DragDifference.x < -maxLeftRight)
+            {
+                normalisedLefRight = -1.0f;
+            }
+            else if (DragDifference.x < maxLeftRight && DragDifference.x > 0)
+            {
+                normalisedLefRight = DragDifference.x / maxLeftRight;
+            }
+            else if (DragDifference.x > -maxLeftRight && DragDifference.x < 0)
+            {
+                normalisedLefRight = DragDifference.x / -maxLeftRight;
+            }
+
+            return normalisedLefRight;
         }
     }
 
