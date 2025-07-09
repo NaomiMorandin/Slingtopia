@@ -40,11 +40,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleCharge();
-
-        if(isDragging)
-        {
-            DragObject();
-        }
     }
 
     #region Charge/Launch
@@ -64,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void LaunchObject(Vector3 pos)
     {
-        var launchedObject = Instantiate(obj, pos, Quaternion.identity);
+        var launchedObject = Instantiate(obj, transform.position, Quaternion.identity);
         var rb = launchedObject.GetComponent<Rigidbody>();
  
         if(rb != null )
@@ -76,34 +71,6 @@ public class Player : MonoBehaviour
         launchForce = 0f;
     }
     #endregion
-    #region Drag
-    private void OnMouseDown()
-    {
-        mousePos = cam.ScreenToWorldPoint(mousePos);
-
-        startXPos = mousePos.x - transform.localPosition.x;
-        startYPos = mousePos.y - transform.localPosition.y;
-
-        isDragging = true;
-    }
-
-    private void OnMouseUp()
-    {
-        isDragging = false;
-    }
-
-    private Vector3 DragObject()
-    {
-        mousePos = cam.ScreenToWorldPoint(mousePos);
-        var objectVector = obj.transform.localPosition;
-        objectVector = new Vector3(mousePos.x - startXPos,
-            mousePos.y - startYPos, transform.localPosition.z);
-
-        return objectVector;
-
-    }
-    #endregion
-
 }
 
 //input
