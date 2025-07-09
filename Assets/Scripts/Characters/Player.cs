@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] Vector3 maxLaunchForce = new Vector3(0f, 10f, 30f);
     [SerializeField] Vector3 minLaunchForce = new Vector3(0f, 1f, 1f);
     [SerializeField] private float launchForce;
+    [SerializeField] private float leftRightForceMax = 10.0f;
     //[Space(1)]
 
 
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
         IsDragging = true;
     }
 
-    private void LaunchActual()
+    public void LaunchActual()
     {
         Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         projectile.Rigidbody.AddForce(CalculatedLaunchForce(NormalisedForceFromDrag), ForceMode.Impulse);
@@ -110,7 +111,9 @@ public class Player : MonoBehaviour
 
     public Vector3 CalculatedLaunchForce(float normalizedForce)
     {
-        return Vector3.Lerp(minLaunchForce, maxLaunchForce, normalizedForce);
+        Vector3 vector = Vector3.Lerp(minLaunchForce, maxLaunchForce, normalizedForce);
+        vector.x = leftRightForceMax * NormalisedLefRight * -1;
+        return vector;
     }
 
     public Vector3 DragDifference
