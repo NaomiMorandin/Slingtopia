@@ -9,4 +9,5 @@ public class Enemy : MonoBehaviour
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public NavMeshAgent NavMeshAgent { get; private set; }
+    [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
 }
