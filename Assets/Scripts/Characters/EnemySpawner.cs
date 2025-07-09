@@ -6,10 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Enemy EnemyPrefab;
 
-    public void Spawn()
+    public Enemy Spawn()
     {
-        if (EnemyPrefab == null) return;
+        if (EnemyPrefab == null) return null;
 
         Enemy enemy = Instantiate(EnemyPrefab, transform.position, transform.rotation);
+        return enemy;
     }
 }

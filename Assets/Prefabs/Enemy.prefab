@@ -2706,6 +2706,7 @@ GameObject:
   - component: {fileID: 7767924006460344291}
   - component: {fileID: 1116553620317124419}
   - component: {fileID: 1753093748737252013}
+  - component: {fileID: 1237496933897007792}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2890,6 +2891,7 @@ MonoBehaviour:
   <NavMeshAgent>k__BackingField: {fileID: 5294205454692952583}
   <Ragdoll>k__BackingField: {fileID: 5387930151030535367}
   <DeathPause>k__BackingField: {fileID: 1753093748737252013}
+  <AI>k__BackingField: {fileID: 1237496933897007792}
   PostDeathTTL: 15
 --- !u!114 &1116553620317124419
 MonoBehaviour:
@@ -2966,6 +2968,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f93b448944f424a98c34c462121009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1237496933897007792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404177843582820214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db0b8c5a99b1d4683344124bcafe86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7767924006460344291}
+  wonderingRadius: 5
+  <CurrentState>k__BackingField: 0
 --- !u!1 &1418532756069270682
 GameObject:
   m_ObjectHideFlags: 0
