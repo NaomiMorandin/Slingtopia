@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField] public Collider Collider { get; private set; }
+    [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            print("Hit Enemy");
+        }
+
+        Destroy(this.gameObject);
     }
 }
