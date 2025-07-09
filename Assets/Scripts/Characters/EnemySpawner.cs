@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Enemy EnemyPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn()
     {
-        
+        if (EnemyPrefab == null) return;
+
+        Enemy enemy = Instantiate(EnemyPrefab, transform.position, transform.rotation);
     }
 }

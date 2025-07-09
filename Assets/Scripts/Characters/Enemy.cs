@@ -10,4 +10,11 @@ public class Enemy : MonoBehaviour
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public NavMeshAgent NavMeshAgent { get; private set; }
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
+    [field: SerializeField] public DeathPause DeathPause { get; private set; }
+    [SerializeField] float PostDeathTTL = 15.0f;
+
+    public void BeginDeathPause()
+    {
+        DeathPause.StartDeathTimer(PostDeathTTL);
+    }
 }
