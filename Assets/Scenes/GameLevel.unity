@@ -25264,6 +25264,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1642363191533295872, guid: fd6ea39a8ea30224f9a85005bee0289b,
+        type: 3}
+      propertyPath: maxLaunchForce.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642363191533295872, guid: fd6ea39a8ea30224f9a85005bee0289b,
+        type: 3}
+      propertyPath: maxLaunchForce.z
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642363191533295872, guid: fd6ea39a8ea30224f9a85005bee0289b,
+        type: 3}
+      propertyPath: minLaunchForce.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642363191533295872, guid: fd6ea39a8ea30224f9a85005bee0289b,
+        type: 3}
+      propertyPath: minLaunchForce.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642363191533295872, guid: fd6ea39a8ea30224f9a85005bee0289b,
+        type: 3}
+      propertyPath: leftRightForceMax
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7255828165103238371, guid: fd6ea39a8ea30224f9a85005bee0289b,
         type: 3}
       propertyPath: m_Name
