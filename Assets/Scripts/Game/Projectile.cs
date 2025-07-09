@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour
 {
     [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
+    [field: SerializeField] public DeathPause DeathPause { get; private set; }
+    [SerializeField] float PostDeathTTL = 15.0f;
+
+    
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,8 +20,9 @@ public class Projectile : MonoBehaviour
             print("Hit Enemy");
 
             enemy.Ragdoll.TurnOn();
+            enemy.BeginDeathPause();
         }
-
-        Destroy(this.gameObject);
+        
+        DeathPause.StartDeathTimer(PostDeathTTL);
     }
 }
