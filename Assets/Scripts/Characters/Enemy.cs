@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field: SerializeField] public DeathPause DeathPause { get; private set; }
     [field: SerializeField] public EnemyAI AI { get; private set; }
+    [field: SerializeField] public SFX_Enemy SFX { get; private set; }
     [SerializeField] float PostDeathTTL = 15.0f;
 
     public static event Action OnEnemeyDeath;

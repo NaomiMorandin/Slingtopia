@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     [SerializeField] TMP_Text time;
     [SerializeField] TMP_Text score;
     [SerializeField] TMP_Text enemyCount;
+    [SerializeField] UI_Bar trenchBar;
 
     public static UI_Debug Debug => Instance.debug;
 
@@ -24,7 +25,16 @@ public class UI : MonoBehaviour
     {
         if (time != null)
         {
-            time.SetText(Game.GameTime.ToString("f0"));
+            int seconds = (int)Game.GameTime;
+            int minutes = 0;
+
+            while (seconds > 60)
+            {
+                seconds -= 60;
+                minutes++;
+            }
+
+            time.SetText(minutes.ToString() + ":" + seconds.ToString("d2"));
         }
 
         if (score != null)
@@ -35,6 +45,11 @@ public class UI : MonoBehaviour
         if (enemyCount != null)
         {
             enemyCount.SetText(Game.Instance.Trench.EnemyCount.ToString());
+        }
+
+        if (trenchBar != null)
+        {
+            trenchBar.Set(Game.Instance.Trench.Progress);
         }
     }
 
