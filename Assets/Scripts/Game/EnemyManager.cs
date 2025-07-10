@@ -31,15 +31,21 @@ public class EnemyManager : MonoBehaviour
         {
             EnemySpawner spawner = null;
 
-            while (spawner == null || !spawner.IsReady)
+            int attempt = 0;
+
+            while ((spawner == null || !spawner.IsReady) && attempt < 5)
             {
                 spawner = enemySpawners[Random.Range(0, enemySpawners.Length)];
+                attempt++;
             }
 
-            Enemy enemy = spawner.Spawn();
-            if (enemy != null)
+            if (spawner != null &&  !spawner.IsReady)
             {
-                enemyCount++;
+                Enemy enemy = spawner.Spawn();
+                if (enemy != null)
+                {
+                    enemyCount++;
+                }
             }
         }
     }
