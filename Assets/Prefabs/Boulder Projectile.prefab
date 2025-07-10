@@ -78,6 +78,26 @@ PrefabInstance:
       propertyPath: isExplosive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: PostDeathTTL
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: impactClip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: impactClip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 60084e1b6de05de48a373fa6a45aac7e, type: 3}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: impactClip.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2056098798944614227, guid: 61a993172b315084fa61433774c093f1, type: 3}

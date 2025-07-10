@@ -92,7 +92,7 @@ PrefabInstance:
         type: 3}
       propertyPath: impactEffect
       value: 
-      objectReference: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7,
+      objectReference: {fileID: 8194992990867289339, guid: c428a983dce315d4f80174d655b2e850,
         type: 3}
     - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
         type: 3}
