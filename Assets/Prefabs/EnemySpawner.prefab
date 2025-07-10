@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7767924006460344291, guid: 31d1d86c33a39014885d7ca3918cb689,
     type: 3}
-  cooldown: 1
+  cooldown: 5

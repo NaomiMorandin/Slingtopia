@@ -468,7 +468,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Basket>k__BackingField: {fileID: 3786338438668179873}
   <SFX>k__BackingField: {fileID: 9014663872506583230}
-  projectilePrefabs: []
+  <BackToMenu>k__BackingField: {fileID: 0}
+  projectilePrefabs:
+  - {fileID: 5257316783186022510, guid: 45cc4df9871a87b4f90540f8434bcf07, type: 3}
+  - {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1, type: 3}
   obj: {fileID: 5963386079059379577, guid: 61a993172b315084fa61433774c093f1, type: 3}
   firePoint: {fileID: 478946012962873264}
   chargeRate: 4
@@ -490,7 +493,8 @@ AudioSource:
   m_GameObject: {fileID: 7255828165103238371}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8545719184718195112, guid: cf203c8f88ad47546b804e3209a1fe8f,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -590,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4565076263646740509}
-  stretchingSound: {fileID: 0}
+  stretchingSound: {fileID: 8300000, guid: 85b5045e0df155f49ade8159908ce15f, type: 3}
   launchSound:
   - {fileID: 8300000, guid: 29a2627134ff77249a8614d4ecdd9e83, type: 3}
   - {fileID: 8300000, guid: 282742730851e7a46a98f39ebe423f8d, type: 3}
