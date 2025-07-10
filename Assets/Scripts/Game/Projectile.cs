@@ -9,8 +9,8 @@ public class Projectile : MonoBehaviour
     [field: SerializeField] public DeathPause DeathPause { get; private set; }
     [SerializeField] float PostDeathTTL = 15.0f;
 
-    
-
+    [SerializeField] AudioClip[] impactClip;
+    [SerializeField] AudioSource audioSource;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,5 +24,10 @@ public class Projectile : MonoBehaviour
         }
         
         DeathPause.StartDeathTimer(PostDeathTTL);
+    }
+
+    public void PlayImpactSound()
+    {
+
     }
 }

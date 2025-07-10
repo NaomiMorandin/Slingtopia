@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     [field: SerializeField] public PlayerBasket Basket {  get; private set; }
+    [field: SerializeField] public SFX_Launcher SFX { get; private set; }
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
 
         if (IsDragging)
         {
-            UI.Debug.DebugText.SetText(NormalisedForceFromDrag.ToString());
+            UI.Debug.DebugText.SetText(DragDifference.ToString() + " " + NormalisedLefRight.ToString());
         }
     }
 
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
             IsDragging = true;
 
 
-
+            SFX.PlayStrechSound();
            /* launchForce += Time.deltaTime * chargeRate;
             launchForce = Mathf.Min(launchForce, chargeMaxForce);*/
 
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
     {
         Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         projectile.Rigidbody.AddForce(CalculatedLaunchForce(NormalisedForceFromDrag), ForceMode.Impulse);
+        SFX.PlayLaunchSound();
     }
 
     private void LaunchObject(float normal)
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
     public Vector3 CalculatedLaunchForce(float normalizedForce)
     {
         Vector3 vector = Vector3.Lerp(minLaunchForce, maxLaunchForce, normalizedForce);
-        vector.x = leftRightForceMax * NormalisedLefRight * -1;
+        vector.x = leftRightForceMax * -NormalisedLefRight;
         return vector;
     }
 
@@ -152,26 +154,19 @@ public class Player : MonoBehaviour
     {
         get
         {
-            if (DragDifference.x > maxLeftRight)
+            float x = DragDifference.x;
+
+            if (x < 0)
             {
-                return 1.0f;
+                if (x < -maxLeftRight) return -1.0f;
+                else return -(x / -maxLeftRight);
             }
-            else if (DragDifference.x < -maxLeftRight)
+            else if (x > 0)
             {
-                return -1.0f;
+                if (x > maxLeftRight) return 1.0f;
+                else return x / maxLeftRight;
             }
-            else if (DragDifference.x < maxLeftRight && DragDifference.x > 0)
-            {
-                return DragDifference.x / maxLeftRight;
-            }
-            else if (DragDifference.x > -maxLeftRight && DragDifference.x < 0)
-            {
-                return DragDifference.x / -maxLeftRight;
-            }
-            else
-            {
-                return 0;
-            }
+            else return 0;
         }
     }
 

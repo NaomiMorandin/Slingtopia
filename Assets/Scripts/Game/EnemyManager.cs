@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     EnemySpawner[] enemySpawners;
 
-    [SerializeField] int enemyTarget;
+    [SerializeField] int[] enemyTargets;
 
     int enemyCount;
 
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        if (enemyCount < enemyTarget)
+        if (enemyCount < enemyTargets[Game.Instance.Level])
         {
             EnemySpawner spawner = null;
 

@@ -16,7 +16,7 @@ public class Trench : MonoBehaviour
 
             enemy.Ragdoll.TurnOn();
             enemy.BeginDeathPause();
-            enemy.Ragdoll.ApplyForce(enemy.transform.forward * deathForce);
+            enemy.Ragdoll.ApplyForce((enemy.transform.forward * deathForce) + (enemy.transform.up * (deathForce/2)));
 
             EnemyCount++;
         }

@@ -25,4 +25,15 @@ public class Game : MonoBehaviour
     {
         gameTime += Time.deltaTime;
     }
+
+    public int Level
+    {
+        get
+        {
+            int l = (int)(gameTime / 30);
+            if (l > 10) return 11;
+            return l;
+        }
+    }
+
 }
