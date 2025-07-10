@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 7767924006460344291}
   wonderingRadius: 5
-  <CurrentState>k__BackingField: 0
+  <CurrentState>k__BackingField: 2
 --- !u!1 &1418532756069270682
 GameObject:
   m_ObjectHideFlags: 0
