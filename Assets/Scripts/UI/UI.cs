@@ -25,10 +25,10 @@ public class UI : MonoBehaviour
     {
         if (time != null)
         {
-            int seconds = (int)Game.GameTime;
+            int seconds = Mathf.FloorToInt(Game.GameTime);
             int minutes = 0;
 
-            while (seconds > 60)
+            while (seconds >= 60)
             {
                 seconds -= 60;
                 minutes++;
