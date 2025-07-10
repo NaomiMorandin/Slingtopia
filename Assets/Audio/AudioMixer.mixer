@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-9216933693948061082
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 0c3410d2e10bf9d4690b4545cdd3ea75
+  m_EffectName: Attenuation
+  m_MixLevel: c89cd3e9766f9ed44af315fd3d234beb
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-8545719184718195112
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -93,6 +107,7 @@ AudioMixerController:
     - 88f7cb182a1c5644d9c6038d9de261ee
     - 9d35fba39cd6ec443a1bc0f3ba335fb5
     - aac20eac87c38124b9714ebf2d6e58f4
+    - 54da65846fe857942bf1501ddb1ed01f
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -109,6 +124,7 @@ AudioMixerGroupController:
   - {fileID: -9187224647022477}
   - {fileID: -8545719184718195112}
   - {fileID: -330056160635694160}
+  - {fileID: 6951999930166869527}
   m_Volume: 9fb27cfa9df4c5042ae923bf08ce82dc
   m_Pitch: 9def490cf5cbe4d43a38072180b43f37
   m_Send: 00000000000000000000000000000000
@@ -142,10 +158,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 858cd68cc35159b449f6f6c192cef04f
   m_FloatValues:
-    a4269a0af4b1cef4eb38cbcdc0bedaa0: 20
+    a4269a0af4b1cef4eb38cbcdc0bedaa0: 7.833429
     bf73c65ae60e38e4ebec715a8278a159: 20
-    9fb27cfa9df4c5042ae923bf08ce82dc: 0.020936936
-    b49dcc6c2c504d14d82a4fac10b8cb77: -5.1925893
+    9fb27cfa9df4c5042ae923bf08ce82dc: 0.13552584
+    b49dcc6c2c504d14d82a4fac10b8cb77: -14.816605
   m_TransitionOverrides: {}
 --- !u!244 &3585823964717980609
 AudioMixerEffectController:
@@ -175,3 +191,22 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &6951999930166869527
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 54da65846fe857942bf1501ddb1ed01f
+  m_Children: []
+  m_Volume: a623591528e457044b35d465937942db
+  m_Pitch: 3c46300f1d26a28488f0cf93a00457c6
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -9216933693948061082}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0

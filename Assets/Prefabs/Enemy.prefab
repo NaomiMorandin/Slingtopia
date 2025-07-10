@@ -7192,7 +7192,8 @@ AudioSource:
   m_GameObject: {fileID: 6876141194181291596}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6951999930166869527, guid: cf203c8f88ad47546b804e3209a1fe8f,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -7293,7 +7294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5880968470664667271}
   getHitSounds: []
-  trenchArriveSounds: []
+  trenchArriveSounds:
+  - {fileID: 8300000, guid: 168c9a5ac7025814ea9c89e5098a3cad, type: 3}
+  - {fileID: 8300000, guid: ceb2474913e8b5e40b17213af473d784, type: 3}
 --- !u!1 &6975400695504464098
 GameObject:
   m_ObjectHideFlags: 0
