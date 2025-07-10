@@ -27,4 +27,11 @@ public class Trench : MonoBehaviour
             }
         }
     }
+    public float Progress
+    {
+        get
+        {
+            return (float)EnemyCount / (float)MaxEnemyCount;
+        }
+    }
 }
