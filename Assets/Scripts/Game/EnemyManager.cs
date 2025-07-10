@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour
                 attempt++;
             }
 
-            if (spawner != null &&  !spawner.IsReady)
+            if (spawner != null && spawner.IsReady)
             {
                 Enemy enemy = spawner.Spawn();
                 if (enemy != null)
