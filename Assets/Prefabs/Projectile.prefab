@@ -62,6 +62,8 @@ MonoBehaviour:
   impactEffect: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
     type: 3}
   ScorePerHit: 10
+  isExplosive: 0
+  radius: 0
 --- !u!135 &8408348936036756358
 SphereCollider:
   m_ObjectHideFlags: 0
