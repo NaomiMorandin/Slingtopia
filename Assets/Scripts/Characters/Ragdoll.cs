@@ -16,6 +16,8 @@ public class Ragdoll : MonoBehaviour
     public void TurnOn()
     {
         enemy.Animator.enabled = false;
+        enemy.Collider.enabled = false;
+        enemy.AI.enabled = false;
 
         foreach (Rigidbody rb in ragdollRigidbodies)
         {
@@ -27,13 +29,13 @@ public class Ragdoll : MonoBehaviour
             collider.enabled = true;
         }
 
-        enemy.Collider.enabled = false;
     }
 
     public void TurnOff()
     {
         enemy.Animator.enabled = true;
         enemy.Collider.enabled = true;
+        
 
         foreach (Rigidbody rb in ragdollRigidbodies)
         {

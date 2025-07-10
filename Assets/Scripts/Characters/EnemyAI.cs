@@ -30,6 +30,14 @@ public class EnemyAI : MonoBehaviour
                 enemy.NavMeshAgent.SetDestination(RandomPointOnNavMesh);
             }
         }
+
+        else if (CurrentState == AI_State.AdvancingToTrench)
+        {
+            if (enemy.NavMeshAgent.velocity.magnitude == 0)
+            {
+                enemy.NavMeshAgent.SetDestination(Game.Instance.Trench.transform.position);
+            }
+        }
     }
 
     public void SetNewState(AI_State newState)
