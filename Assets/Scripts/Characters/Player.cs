@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!Game.Instance.IsRunning) return;
         HandleCharge();
 
         /*if (IsDragging)
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
 
     public void LaunchActual()
     {
+        if (!Game.Instance.IsRunning) return;
         Projectile projectile = Instantiate(projectilePrefabs[Random.Range(0,projectilePrefabs.Length)], firePoint.position, firePoint.rotation);
         projectile.Rigidbody.AddForce(CalculatedLaunchForce(NormalisedForceFromDrag), ForceMode.Impulse);
         SFX.PlayLaunchSound();
