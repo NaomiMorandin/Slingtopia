@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [field: SerializeField] public Trench Trench { get; private set; }
     [field: SerializeField] public EnemySpawner[] Spawners { get; private set; }
     float gameTime;
+    public int Score;
 
     public static float GameTime => Instance.gameTime;
 

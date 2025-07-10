@@ -23,7 +23,7 @@ public class Trench : MonoBehaviour
 
             if (EnemyCount >= MaxEnemyCount)
             {
-                // end game
+                BackToMenu.ReturnToMenu();
             }
         }
     }

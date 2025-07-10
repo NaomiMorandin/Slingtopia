@@ -118,6 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: {fileID: 0}
+  time: {fileID: 1060315269960239840}
+  score: {fileID: 4617244509205248447}
+  enemyCount: {fileID: 720835465702965377}
 --- !u!1 &3209632890360322836
 GameObject:
   m_ObjectHideFlags: 0
