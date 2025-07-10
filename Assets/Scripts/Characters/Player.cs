@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     [field: SerializeField] public PlayerBasket Basket {  get; private set; }
     [field: SerializeField] public SFX_Launcher SFX { get; private set; }
+    [field: SerializeField] public BackToMenu BackToMenu { get; private set; }
 
     private void Awake()
     {
@@ -52,10 +53,10 @@ public class Player : MonoBehaviour
     {
         HandleCharge();
 
-        if (IsDragging)
+        /*if (IsDragging)
         {
             UI.Debug.DebugText.SetText(DragDifference.ToString() + " " + NormalisedLefRight.ToString());
-        }
+        }*/
     }
 
     #region Charge/Launch

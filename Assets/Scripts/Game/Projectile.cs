@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] AudioClip[] impactClip;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject impactEffect;
+    [SerializeField] int ScorePerHit = 10;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +23,10 @@ public class Projectile : MonoBehaviour
 
             enemy.Ragdoll.TurnOn();
             enemy.BeginDeathPause();
+
+            if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
+            PlayImpactSound();
+            Game.Instance.Score += ScorePerHit;
         }
         
         DeathPause.StartDeathTimer(PostDeathTTL);
@@ -28,6 +34,11 @@ public class Projectile : MonoBehaviour
 
     public void PlayImpactSound()
     {
-
+        if (audioSource != null && impactClip.Length > 0)
+        {
+            if (audioSource.isPlaying) audioSource.Stop();
+            audioSource.clip = impactClip[Random.Range(0, impactClip.Length)];
+            audioSource.Play();
+        }
     }
 }

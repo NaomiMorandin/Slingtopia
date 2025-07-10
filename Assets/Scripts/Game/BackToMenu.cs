@@ -9,7 +9,12 @@ public class BackToMenu : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            ReturnToMenu();
         }
+    }
+
+    public static void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

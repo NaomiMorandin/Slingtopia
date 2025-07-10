@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trench : MonoBehaviour
 {
+    [SerializeField] int MaxEnemyCount = 100;
     [field: SerializeField] public int EnemyCount { get; private set; } = 0;
     [SerializeField] float deathForce = 10;
 
@@ -19,6 +20,11 @@ public class Trench : MonoBehaviour
             enemy.Ragdoll.ApplyForce((enemy.transform.forward * deathForce) + (enemy.transform.up * (deathForce/2)));
 
             EnemyCount++;
+
+            if (EnemyCount >= MaxEnemyCount)
+            {
+                BackToMenu.ReturnToMenu();
+            }
         }
     }
 }
