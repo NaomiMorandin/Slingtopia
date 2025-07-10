@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6666417212096711839}
   - component: {fileID: 4510907911749072002}
   - component: {fileID: 8149289305351327216}
+  - component: {fileID: 414449375100256723}
   m_Layer: 6
   m_Name: Projectile
   m_TagString: Untagged
@@ -53,6 +54,10 @@ MonoBehaviour:
   <Rigidbody>k__BackingField: {fileID: 4510907911749072002}
   <DeathPause>k__BackingField: {fileID: 8149289305351327216}
   PostDeathTTL: 15
+  impactClip: []
+  audioSource: {fileID: 0}
+  impactEffect: {fileID: 0}
+  ScorePerHit: 10
 --- !u!135 &8408348936036756358
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -134,6 +139,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f93b448944f424a98c34c462121009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &414449375100256723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963386079059379577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d52b42461f4bb4ea3c5d64ddb1eb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torqueMin: 2
+  torqueMax: 5
 --- !u!1001 &2056098798944580083
 PrefabInstance:
   m_ObjectHideFlags: 0
