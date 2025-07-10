@@ -22,4 +22,11 @@ public class Enemy : MonoBehaviour
         DeathPause.StartDeathTimer(PostDeathTTL);
         OnEnemeyDeath?.Invoke();
     }
+
+    private void Update()
+    {
+        Animator.SetBool("moving", NavMeshAgent.velocity.magnitude > 0);
+
+
+    }
 }

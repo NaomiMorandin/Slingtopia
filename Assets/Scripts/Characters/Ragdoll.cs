@@ -15,13 +15,19 @@ public class Ragdoll : MonoBehaviour
 
     public void TurnOn()
     {
+        enemy.Animator.applyRootMotion = false;
         enemy.Animator.enabled = false;
         enemy.Collider.enabled = false;
+        enemy.NavMeshAgent.enabled = false;
         enemy.AI.enabled = false;
 
         foreach (Rigidbody rb in ragdollRigidbodies)
         {
             rb.isKinematic = false;
+
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
         }
 
         foreach (Collider collider in ragdollColliders)
@@ -46,5 +52,10 @@ public class Ragdoll : MonoBehaviour
         {
             collider.enabled = false;
         }
+    }
+
+    public void ApplyForce(Vector3 force)
+    {
+        ragdollRigidbodies[0].AddForce(force, ForceMode.VelocityChange);
     }
 }

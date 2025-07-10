@@ -8,6 +8,10 @@ public class Game : MonoBehaviour
 
     [field: SerializeField] public Trench Trench { get; private set; }
     [field: SerializeField] public EnemySpawner[] Spawners { get; private set; }
+    float gameTime;
+
+    public static float GameTime => Instance.gameTime;
+
 
     private void Awake()
     {
@@ -15,5 +19,10 @@ public class Game : MonoBehaviour
         else Destroy(this.gameObject);
 
         if (Trench == null) Trench = FindFirstObjectByType<Trench>();
+    }
+
+    private void Update()
+    {
+        gameTime += Time.deltaTime;
     }
 }

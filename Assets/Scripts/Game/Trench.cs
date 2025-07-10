@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trench : MonoBehaviour
 {
     [field: SerializeField] public int EnemyCount { get; private set; } = 0;
+    [SerializeField] float deathForce = 10;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class Trench : MonoBehaviour
 
             enemy.Ragdoll.TurnOn();
             enemy.BeginDeathPause();
+            enemy.Ragdoll.ApplyForce(enemy.transform.forward * deathForce);
 
             EnemyCount++;
         }
