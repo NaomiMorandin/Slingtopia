@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
 
     [Header("Object")]
-    [SerializeField] Projectile projectilePrefab;
+    [SerializeField] Projectile[] projectilePrefabs;
     [SerializeField] private GameObject obj;
     [SerializeField] private Transform firePoint;
     [Space(1)]
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 
     public void LaunchActual()
     {
-        Projectile projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Projectile projectile = Instantiate(projectilePrefabs[Random.Range(0,projectilePrefabs.Length)], firePoint.position, firePoint.rotation);
         projectile.Rigidbody.AddForce(CalculatedLaunchForce(NormalisedForceFromDrag), ForceMode.Impulse);
         SFX.PlayLaunchSound();
     }
