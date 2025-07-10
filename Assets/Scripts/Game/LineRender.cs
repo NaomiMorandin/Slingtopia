@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class LineRenderTest : MonoBehaviour
+public class LineRender : MonoBehaviour
 {
     [Header("String")]
     [SerializeField] private Transform startPoint;
