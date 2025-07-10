@@ -17,6 +17,8 @@ public class Projectile : MonoBehaviour
     [Header("AOE")]
     [SerializeField] private bool isExplosive = false;
     [SerializeField] private float radius;
+    [SerializeField] bool singleExplosion;
+    bool hasExploded;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,7 +44,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isExplosive)
+        if(isExplosive && ((singleExplosion && !hasExploded) || !singleExplosion))
         {
             if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
 
@@ -62,8 +64,7 @@ public class Projectile : MonoBehaviour
                 }
             }
             DeathPause.StartDeathTimer(PostDeathTTL);
-
-            print("OnCollisionEnter");
+            hasExploded = true;
         }
     }
 
