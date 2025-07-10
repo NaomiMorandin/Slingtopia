@@ -68,6 +68,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boulder Projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
+        type: 3}
+      propertyPath: isExplosive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2056098798944614227, guid: 61a993172b315084fa61433774c093f1, type: 3}
