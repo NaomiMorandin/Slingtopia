@@ -22,7 +22,7 @@ public class PlayerBasket : MonoBehaviour
     {
         get
         {
-            Vector3 pos = Vector3.Lerp(minPos, minPos, player.NormalisedForceFromDrag);
+            Vector3 pos = Vector3.Lerp(minPos, maxPos, player.NormalisedForceFromDrag);
             pos.x = maxLeftRight * player.NormalisedLefRight;
             return pos;
         }
