@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Trench : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField] public int EnemyCount { get; private set; } = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            print("Enemy hit trench");
+
+            enemy.Ragdoll.TurnOn();
+            enemy.BeginDeathPause();
+
+            EnemyCount++;
+        }
     }
 }

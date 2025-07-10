@@ -13,5 +13,7 @@ public class Game : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(this.gameObject);
+
+        if (Trench == null) Trench = FindFirstObjectByType<Trench>();
     }
 }

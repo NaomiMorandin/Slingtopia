@@ -152,26 +152,26 @@ public class Player : MonoBehaviour
     {
         get
         {
-            float normalisedLefRight = 0;
-
             if (DragDifference.x > maxLeftRight)
             {
-                normalisedLefRight = 1.0f;
+                return 1.0f;
             }
             else if (DragDifference.x < -maxLeftRight)
             {
-                normalisedLefRight = -1.0f;
+                return -1.0f;
             }
             else if (DragDifference.x < maxLeftRight && DragDifference.x > 0)
             {
-                normalisedLefRight = DragDifference.x / maxLeftRight;
+                return DragDifference.x / maxLeftRight;
             }
             else if (DragDifference.x > -maxLeftRight && DragDifference.x < 0)
             {
-                normalisedLefRight = DragDifference.x / -maxLeftRight;
+                return DragDifference.x / -maxLeftRight;
             }
-
-            return normalisedLefRight;
+            else
+            {
+                return 0;
+            }
         }
     }
 

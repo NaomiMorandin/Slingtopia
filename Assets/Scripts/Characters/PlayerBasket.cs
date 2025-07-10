@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerBasket : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Player player;
+    [SerializeField] Transform basket;
+
+    [SerializeField] Vector3 restPos;
+    [SerializeField] Vector3 minPos;
+    [SerializeField] Vector3 maxPos;
+    [SerializeField] float maxLeftRight;
+
+    private void Update()
     {
-        
+        if (player.IsDragging) basket.localPosition = LocalPos;
+        else basket.localPosition = restPos;
     }
 
-    // Update is called once per frame
-    void Update()
+    private Vector3 LocalPos
     {
-        
+        get
+        {
+            Vector3 pos = Vector3.Lerp(minPos, minPos, player.NormalisedForceFromDrag);
+            pos.x = maxLeftRight * player.NormalisedLefRight;
+            return pos;
+        }
     }
 }

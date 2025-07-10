@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,11 @@ public class Enemy : MonoBehaviour
     [field: SerializeField] public EnemyAI AI { get; private set; }
     [SerializeField] float PostDeathTTL = 15.0f;
 
+    public static event Action OnEnemeyDeath;
+
     public void BeginDeathPause()
     {
         DeathPause.StartDeathTimer(PostDeathTTL);
+        OnEnemeyDeath?.Invoke();
     }
 }
