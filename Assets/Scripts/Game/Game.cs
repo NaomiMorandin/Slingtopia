@@ -31,7 +31,7 @@ public class Game : MonoBehaviour
         get
         {
             int l = (int)(gameTime / 30);
-            if (l > 10) return 11;
+            if (l > 10) return 10;
             return l;
         }
     }
