@@ -18,6 +18,7 @@ public class Trench : MonoBehaviour
             enemy.Ragdoll.TurnOn();
             enemy.BeginDeathPause();
             enemy.Ragdoll.ApplyForce((enemy.transform.forward * deathForce) + (enemy.transform.up * (deathForce/2)));
+            enemy.SFX.PlayTrenchArriveSound();
 
             EnemyCount++;
 
@@ -25,6 +26,13 @@ public class Trench : MonoBehaviour
             {
                 BackToMenu.ReturnToMenu();
             }
+        }
+    }
+    public float Progress
+    {
+        get
+        {
+            return (float)EnemyCount / (float)MaxEnemyCount;
         }
     }
 }
