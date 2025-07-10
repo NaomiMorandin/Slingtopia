@@ -14,6 +14,7 @@ public class PlayerBasket : MonoBehaviour
 
     private void Update()
     {
+        if (!Game.Instance.IsRunning) return;
         if (player.IsDragging) basket.localPosition = LocalPos;
         else basket.localPosition = restPos;
     }

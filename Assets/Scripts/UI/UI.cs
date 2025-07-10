@@ -12,13 +12,20 @@ public class UI : MonoBehaviour
     [SerializeField] TMP_Text score;
     [SerializeField] TMP_Text enemyCount;
     [SerializeField] UI_Bar trenchBar;
+    [SerializeField] UI_NameQuestion question;
 
     public static UI_Debug Debug => Instance.debug;
+    public static UI_NameQuestion NameQuestion => Instance.question;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(this.gameObject);
+    }
+
+    private void Start()
+    {
+        question.gameObject.SetActive(false);
     }
 
     private void Update()

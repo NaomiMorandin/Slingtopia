@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     public int Score;
 
     public static float GameTime => Instance.gameTime;
-
+    public bool IsRunning = true;
 
     private void Awake()
     {

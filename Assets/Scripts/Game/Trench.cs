@@ -24,7 +24,9 @@ public class Trench : MonoBehaviour
 
             if (EnemyCount >= MaxEnemyCount)
             {
-                BackToMenu.ReturnToMenu();
+                //BackToMenu.ReturnToMenu();
+                Game.Instance.IsRunning = false;
+                UI.NameQuestion.gameObject.SetActive(true);
             }
         }
     }

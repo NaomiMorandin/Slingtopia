@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
                 enemy.SFX.PlayGetHitSound();
 
                 if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
-                PlayImpactSound();
+                PlayImpactSoundEffect();
                 Game.Instance.Score += ScorePerHit;
             }
 
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
         if(isExplosive && ((singleExplosion && !hasExploded) || !singleExplosion))
         {
             if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
-
+            PlayImpactSoundEffect();
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
             foreach (var hitCollider in hitColliders)
@@ -68,7 +68,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void PlayImpactSound()
+    public void PlayImpactSoundEffect()
     {
         if (audioSource != null && impactClip.Length > 0)
         {
