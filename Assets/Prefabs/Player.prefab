@@ -80,7 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d5b35ae763f794ea9f189760f4c223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Basket>k__BackingField: {fileID: 0}
+  <Basket>k__BackingField: {fileID: 3786338438668179873}
+  <SFX>k__BackingField: {fileID: 9014663872506583230}
   projectilePrefab: {fileID: 7210513990572037747, guid: 61a993172b315084fa61433774c093f1,
     type: 3}
   obj: {fileID: 5963386079059379577, guid: 61a993172b315084fa61433774c093f1, type: 3}
@@ -151,7 +152,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -211,6 +212,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af5f050f24a042f4bad63bb5c12f56d1, type: 3}
   - {fileID: 8300000, guid: fc999d8824fa499439883776c04d4ae8, type: 3}
   - {fileID: 8300000, guid: 2777e586f066bf648bd29b856ad7ade4, type: 3}
+  pitchVariation: 0.1
 --- !u!1001 &4567282279902739670
 PrefabInstance:
   m_ObjectHideFlags: 0
