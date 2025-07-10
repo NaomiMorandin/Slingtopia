@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] AudioClip[] impactClip;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject impactEffect;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +29,10 @@ public class Projectile : MonoBehaviour
 
     public void PlayImpactSound()
     {
-
+        if (audioSource != null && impactClip.Length > 0)
+        {
+            audioSource.clip = impactClip[Random.Range(0, impactClip.Length)];
+            audioSource.Play();
+        }
     }
 }
