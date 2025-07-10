@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     [field: SerializeField] public PlayerBasket Basket {  get; private set; }
+    [field: SerializeField] public SFX_Launcher SFX { get; private set; }
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
 
         if (IsDragging)
         {
-            UI.Debug.DebugText.SetText(NormalisedForceFromDrag.ToString());
+            UI.Debug.DebugText.SetText(DragDifference.ToString());
         }
     }
 
