@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
 
             enemy.Ragdoll.TurnOn();
             enemy.BeginDeathPause();
+            enemy.SFX.PlayGetHitSound();
 
             if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
             PlayImpactSound();
