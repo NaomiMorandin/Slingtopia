@@ -44,8 +44,6 @@ public class Projectile : MonoBehaviour
     {
         if(isExplosive)
         {
-
-
             if (impactEffect != null) Instantiate(impactEffect, transform.position, transform.rotation);
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
@@ -64,6 +62,8 @@ public class Projectile : MonoBehaviour
                 }
             }
             DeathPause.StartDeathTimer(PostDeathTTL);
+
+            print("OnCollisionEnter");
         }
     }
 
